@@ -31,11 +31,23 @@ In this mode control will look like below:
 ![Screenshot](http://storage1.static.itmages.ru/i/15/0224/h_1424800653_7670716_ed0f35f421.png)
 
 #### Setting different colors of control elements
-You are able to change colors of different element by setting these prperties
+You are able to change colors of different element by setting these properties
 ```
 @property (nonatomic, strong) UIColor *tagsBackgroungColor;
 @property (nonatomic, strong) UIColor *tagsTextColor;
 @property (nonatomic, strong) UIColor *tagsDeleteButtonColor;
+```
+
+#### Using custom delimiters
+Sometimes you want a tag automatically added based on specific delimiters (space or comma, for example). In addition to the default `return` key, you can supply a string of delimiters.
+```
+@property (nonatomic, strong) NSString *delimiters;
+```
+
+######Example:
+
+```
+self.tagControl.delimiters = @" ,+"
 ```
 
 #### Applying changes
