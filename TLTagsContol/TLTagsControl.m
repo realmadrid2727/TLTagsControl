@@ -290,8 +290,7 @@
   [view removeFromSuperview];
   
   NSInteger index = [tagSubviews_ indexOfObject:view];
-  [_tags removeObjectAtIndex:index];
-  [self reloadTagSubviews];
+  [self deleteTag:[_tags objectAtIndex:index] withIndex:index];
 }
 
 - (void)tagButtonPressed:(id)sender {
@@ -301,13 +300,30 @@
   [self addTag:button.titleLabel.text];
 }
 
+#pragma mark - Delegate
+
+- (void)gestureAction:(id)sender {
+  UITapGestureRecognizer *tapRecognizer = (UITapGestureRecognizer *)sender;
+  [tapDelegate tagsControl:self tappedAtIndex:tapRecognizer.view.tag];
+}
+
+- (void)deleteTag:(NSString *)tag withIndex:(NSUInteger)index {
+  [_tags removeObjectAtIndex:index];
+  [self reloadTagSubviews];
+  
+  if ([self.tapDelegate respondsToSelector:@selector(tagsControl:deletedTag:)]) {
+    [tapDelegate tagsControl:self deletedTag:tag];
+  }
+}
+
 #pragma mark - textfield stuff
 
 - (void)textFieldDidDeleteBlankString:(ODTextField *)textField
 {
   if ([self.tags count] > 0) {
-    [self.tags removeLastObject];
-    [self reloadTagSubviews];
+    // If there are tags and we're backspacing, remove the last tag in the array
+    NSString *lastTag = (NSString *)[self.tags lastObject];
+    [self deleteTag:lastTag withIndex:[self.tags count]-1];
   }
 }
 
@@ -369,11 +385,6 @@
 
 - (void)setPlaceholder:(NSString *)tagPlaceholder {
   _tagPlaceholder = tagPlaceholder;
-}
-
-- (void)gestureAction:(id)sender {
-  UITapGestureRecognizer *tapRecognizer = (UITapGestureRecognizer *)sender;
-  [tapDelegate tagsControl:self tappedAtIndex:tapRecognizer.view.tag];
 }
 
 @end

@@ -12,7 +12,10 @@
 
 @protocol TLTagsControlDelegate <NSObject>
 
+@optional
+
 - (void)tagsControl:(TLTagsControl *)tagsControl tappedAtIndex:(NSInteger)index;
+- (void)tagsControl:(TLTagsControl *)tagsControl deletedTag:(NSString *)tag;
 
 @end
 

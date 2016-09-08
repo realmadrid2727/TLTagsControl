@@ -49,7 +49,7 @@
                     <connections>
                         <outlet property="blueEditingTagControl" destination="Rdj-EL-bmX" id="UKI-vs-keE"/>
                         <outlet property="blueListingTagControl" destination="JHV-ys-soh" id="Zif-pd-bRK"/>
-                        <outlet property="defauldListingTagControl" destination="sBF-0F-nT1" id="ROo-dK-6a1"/>
+                        <outlet property="defaultListingTagControl" destination="sBF-0F-nT1" id="ROo-dK-6a1"/>
                         <outlet property="defaultEditingTagControl" destination="K0q-hs-3Bd" id="grm-e1-849"/>
                         <outlet property="redEditingTagControl" destination="fuR-67-dAv" id="SUn-RV-HQM"/>
                         <outlet property="redListingTagControl" destination="qWD-qi-oWK" id="ROG-Ce-RAQ"/>
