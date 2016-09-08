@@ -84,6 +84,10 @@
   tagInputField_.placeholder = @"tag";
   tagInputField_.autocorrectionType = UITextAutocorrectionTypeNo;
   
+  // Set some simple defaults
+  self.delimiters = @"";
+  self.allowableCharacterSet = [NSMutableCharacterSet alphanumericCharacterSet];
+  
   if (_mode == TLTagsControlModeEdit) {
     [self addSubview:tagInputField_];
   }
@@ -341,8 +345,15 @@
   NSString *resultingString;
   NSString *text = textField.text;
   
+  // Check if a delimiter is entered and add the tag if it is
+  if ([text length] > 0 && [string rangeOfCharacterFromSet:[[NSCharacterSet characterSetWithCharactersInString:self.delimiters] invertedSet]].location == NSNotFound) {
+    textField.text = @"";
+    [self addTag:text];
+    
+    return NO;
+  }
   
-  if (string.length == 1 && [string rangeOfCharacterFromSet:[[NSCharacterSet alphanumericCharacterSet] invertedSet]].location != NSNotFound) {
+  if (string.length == 1 && [string rangeOfCharacterFromSet:[self.allowableCharacterSet invertedSet]].location != NSNotFound) {
     return NO;
   } else {
     if (!text || [text isEqualToString:@""]) {
@@ -356,11 +367,11 @@
                                                                 withString:string];
     }
     
-    NSArray *components = [resultingString componentsSeparatedByCharactersInSet:[[NSCharacterSet alphanumericCharacterSet] invertedSet]];
+    NSArray *components = [resultingString componentsSeparatedByCharactersInSet:[self.allowableCharacterSet invertedSet]];
     
     if (components.count > 2) {
       for (NSString *component in components) {
-        if (component.length > 0 && [component rangeOfCharacterFromSet:[[NSCharacterSet alphanumericCharacterSet] invertedSet]].location == NSNotFound) {
+        if (component.length > 0 && [component rangeOfCharacterFromSet:[self.allowableCharacterSet invertedSet]].location == NSNotFound) {
           [self addTag:component];
           break;
         }

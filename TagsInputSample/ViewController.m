@@ -32,6 +32,10 @@
   _redEditingTagControl.tags = [tags mutableCopy];
   _defaultEditingTagControl.tagPlaceholder = @"Placeholder";
   _defaultEditingTagControl.tapDelegate = self;
+  // Character set example only allowing lower and upper case "a", "b", "c" to be entered
+  //_defaultEditingTagControl.allowableCharacterSet = [NSMutableCharacterSet characterSetWithCharactersInString:@"abcABC"];
+  // Allows tags to be created by tapping the spacebar or a comma
+  _defaultEditingTagControl.delimiters = @" ,";
   
   _defaultListingTagControl.tags = [tags mutableCopy];
   _blueListingTagControl.tags = [tags mutableCopy];

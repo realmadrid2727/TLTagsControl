@@ -32,8 +32,13 @@ typedef NS_ENUM(NSUInteger, TLTagsControlMode) {
 @property (nonatomic, strong) UIColor *tagsDeleteButtonColor;
 @property (nonatomic, strong) NSString *tagPlaceholder;
 @property (nonatomic) TLTagsControlMode mode;
-
 @property (assign, nonatomic) id<TLTagsControlDelegate> tapDelegate;
+
+// String of characters that, when entered, will add a new tag made up of the textbox's text; defaults to only return key
+@property (nonatomic, strong) NSString *delimiters;
+
+// Character set of characters allowed to comprise a tag; defaults to alphanumeric
+@property (nonatomic, strong) NSMutableCharacterSet *allowableCharacterSet;
 
 - (id)initWithFrame:(CGRect)frame andTags:(NSArray *)tags withTagsControlMode:(TLTagsControlMode)mode;
 
