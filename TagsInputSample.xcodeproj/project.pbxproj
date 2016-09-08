@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		556FF5FA1D81F97A00AF19EB /* ODTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 556FF5F91D81F97A00AF19EB /* ODTextField.m */; };
 		ED8250A41A8A91E000528293 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8250A31A8A91E000528293 /* main.m */; };
 		ED8250A71A8A91E000528293 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8250A61A8A91E000528293 /* AppDelegate.m */; };
 		ED8250AA1A8A91E000528293 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8250A91A8A91E000528293 /* ViewController.m */; };
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		556FF5F81D81F97A00AF19EB /* ODTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODTextField.h; sourceTree = "<group>"; };
+		556FF5F91D81F97A00AF19EB /* ODTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODTextField.m; sourceTree = "<group>"; };
 		ED82509E1A8A91E000528293 /* TagsInputSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TagsInputSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8250A21A8A91E000528293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED8250A31A8A91E000528293 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -126,6 +129,8 @@
 		ED8250C71A8A923600528293 /* TLTagsControl */ = {
 			isa = PBXGroup;
 			children = (
+				556FF5F81D81F97A00AF19EB /* ODTextField.h */,
+				556FF5F91D81F97A00AF19EB /* ODTextField.m */,
 				ED8250C81A8A927A00528293 /* TLTagsControl.h */,
 				ED8250C91A8A927A00528293 /* TLTagsControl.m */,
 			);
@@ -237,6 +242,7 @@
 				ED8250A71A8A91E000528293 /* AppDelegate.m in Sources */,
 				ED8250CA1A8A927A00528293 /* TLTagsControl.m in Sources */,
 				ED8250A41A8A91E000528293 /* main.m in Sources */,
+				556FF5FA1D81F97A00AF19EB /* ODTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +433,7 @@
 				ED8250C31A8A91E000528293 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ED8250C41A8A91E000528293 /* Build configuration list for PBXNativeTarget "TagsInputSampleTests" */ = {
 			isa = XCConfigurationList;
@@ -435,6 +442,7 @@
 				ED8250C61A8A91E000528293 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
